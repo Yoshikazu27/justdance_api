@@ -25,7 +25,7 @@ const requireApiKey = (req, res, next) => {
 
 const readData = async () => {
     try {
-        const data = await fs.readFile('./db.json');
+        const data = await fs.readFile('./songs-list.json');
         return JSON.parse(data);
     } catch (error) {
         console.log(error);
@@ -35,7 +35,7 @@ const readData = async () => {
 
 const writeData = async (data) => {
     try {
-        await fs.writeFile('./db.json', JSON.stringify(data, null, 2));
+        await fs.writeFile('./songs-list.json', JSON.stringify(data, null, 2));
     } catch (error) {
         console.log(error);
     }
