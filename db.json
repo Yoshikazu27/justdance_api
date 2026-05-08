@@ -1,0 +1,67 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "name": "#thatPOWER",
+      "artist": "will.i.am Ft. Justin Bieber",
+      "difficulty": 1,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/ThatPower_1693434669/assets/web/thatpower_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/ThatPower_415658484568750ea163eaef619ec89aad6fc0e3e29ca4f9d118c5651f8cda12.mp4",
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "#thatPOWER - Extreme Version",
+      "artist": "will.i.am Ft. Justin Bieber",
+      "difficulty": 4,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/ThatPowerALT_1693434685/assets/web/thatpoweralt_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/ThatPowerALT_6aaa197985bf2a9ce47e85206581702072e861cca69f074cd19ad9def854c8b3.mp4",
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "#thatPOWER - Sing-Along",
+      "artist": "will.i.am Ft. Justin Bieber",
+      "difficulty": 2,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/ThatPowerOSCDLC_1693434701/assets/web/thatpoweroscdlc_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/ThatPowerOSCDLC_57da48e1e79d0f88eedbd491a74b3de8297febea53d14cc8e56fe7036749f26a.mp4",
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "10.000 Luchtballonnen",
+      "artist": "K3",
+      "difficulty": 1,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/10000Lucht_1693425067/assets/web/10000lucht_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/10000Lucht_0bfcf593dc0b70027d0248279ab4f78eccbb9f6347f6132d613911d9b33256e4.mp4",
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "1999",
+      "artist": "Charli XCX & Troye Sivan",
+      "difficulty": 2,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/1999_1693421990/assets/web/1999_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/1999_1685bb591415b47d670e8bb85d0b1319eae527afd9e12b0d16c29bde0505d643.mp4",
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "24K Magic",
+      "artist": "Bruno Mars",
+      "difficulty": 1,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/24K_1693425084/assets/web/24k_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/24K_d0899fbc95ea4bc9f91175186698796c0088198cc464821e033c5ab2fa5c5f6d.mp4",
+      "available": true
+    },
+    {
+      "id": 7,
+      "name": "24K Magic - Extreme Version",
+      "artist": "Bruno Mars",
+      "difficulty": 4,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/24KALT_1693425101/assets/web/24kalt_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/24KALT_6f894364336bff8b210c9386479db4814e190221fb2892896baf6272225bdd9d.mp4",
+      "available": true
+    }
+  ]
+}

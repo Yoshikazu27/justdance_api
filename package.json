@@ -1,0 +1,23 @@
+{
+  "name": "justdance-api",
+  "version": "1.0.0",
+  "description": "API made with Node",
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "license": "ISC",
+  "author": "yoshikazu.casanova",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
