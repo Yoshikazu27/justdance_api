@@ -1,5 +1,5 @@
 import express from 'express';
-import fs, { read } from 'fs';
+import fs from 'fs/promises';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
@@ -29,9 +29,9 @@ app.use((req, res, next) => {
     next();
 });
 
-const readData = () => {
+const readData = async () => {
     try {
-        const data = fs.readFileSync('./db.json');
+        const data = await fs.readFile('./db.json');
         return JSON.parse(data);
     } catch (error) {
         console.log(error);
@@ -39,9 +39,9 @@ const readData = () => {
     }
 }
 
-const writeData = (data) => {
+const writeData = async (data) => {
     try {
-        fs.writeFileSync('./db.json', JSON.stringify(data, null, 2));
+        await fs.writeFile('./db.json', JSON.stringify(data, null, 2));
     } catch (error) {
         console.log(error);
     }
@@ -51,15 +51,15 @@ app.get('/api/', (req, res) => {
     res.send('Welcome to my Just Dance Now Plus Catalogue!');
 });
 
-app.get('/api/songs', (req, res) => {
-    const data = readData();
+app.get('/api/songs', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
     res.json(data.songs.filter(song => song.available));
 });
-app.get('/api/songs/:id', (req, res) => {
-    const data = readData();
+app.get('/api/songs/:id', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
@@ -71,8 +71,8 @@ app.get('/api/songs/:id', (req, res) => {
     res.json(song);
 });
 
-app.get('/api/songs/filter/:text', (req, res) => {
-    const data = readData();
+app.get('/api/songs/filter/:text', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
@@ -81,8 +81,8 @@ app.get('/api/songs/filter/:text', (req, res) => {
     res.json(songs);
 });
 
-app.get('/api/songs/all', (req, res) => {
-    const data = readData();
+app.get('/api/songs/all', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
@@ -90,8 +90,8 @@ app.get('/api/songs/all', (req, res) => {
 });
 
 
-app.post('/api/songs', (req, res) => {
-    const data = readData();
+app.post('/api/songs', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
@@ -109,12 +109,12 @@ app.post('/api/songs', (req, res) => {
         available: true
     }
     data.songs.push(newSong);
-    writeData(data);
+    await writeData(data);
     res.json(newSong);
 });
 
-app.put('/api/songs/:id', (req, res) => {
-    const data = readData();
+app.put('/api/songs/:id', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
@@ -140,12 +140,12 @@ app.put('/api/songs/:id', (req, res) => {
         ...data.songs[songIndex],
         ...updatedFields
     };
-    writeData(data);
+    await writeData(data);
     res.json(data.songs[songIndex]);
 });
 
-app.delete('/api/songs/:id', (req, res) => {
-    const data = readData();
+app.delete('/api/songs/:id', async (req, res) => {
+    const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
@@ -157,7 +157,7 @@ app.delete('/api/songs/:id', (req, res) => {
     }
 
     data.songs.splice(songIndex, 1);
-    writeData(data);
+    await writeData(data);
     res.json({ message: 'Song deleted' });
 });
 

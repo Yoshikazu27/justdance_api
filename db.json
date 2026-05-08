@@ -62,6 +62,15 @@
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/24KALT_1693425101/assets/web/24kalt_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/24KALT_6f894364336bff8b210c9386479db4814e190221fb2892896baf6272225bdd9d.mp4",
       "available": true
+    },
+    {
+      "id": 8,
+      "name": "360",
+      "artist": "Charli xcx",
+      "difficulty": 3,
+      "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/360_1775248330/assets/web/360_small.jpg",
+      "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/360_ad5f94172e73755008dda59297ffd76dda08293866845e80889b6565f2b9f3d0.mp4",
+      "available": true
     }
   ]
 }
