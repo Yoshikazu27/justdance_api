@@ -70,25 +70,25 @@ app.get('/api/songs/:id', async (req, res) => {
     res.json(song);
 });
 
-app.post('/api/songs/get_by_name', async (req, res) => {
+app.get('/api/songs/name/:name', async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
-    const body = req.body;
-    const song = data.songs.find((song) => song.name === body.name);
+    const name = decodeURIComponent(req.params.name);
+    const song = data.songs.find((song) => song.name === name);
     if (!song) {
         return res.status(404).json({ error: "Song not found" });
     }
     res.json(song);
 });
 
-app.post('/api/songs/filter', async (req, res) => {
+app.get('/api/songs/filter/:text', async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
-    const text = req.body.filter.toLowerCase();
+    const text = decodeURIComponent(req.params.text.toLowerCase());
     const songs = data.songs.filter((song) => [song.name, song.artist].some(y => y.toLowerCase().includes(text)));
     res.json(songs);
 });
