@@ -22,12 +22,6 @@ const requireApiKey = (req, res, next) => {
     }
     next();
 }
-app.use((req, res, next) => {
-    if (req.method !== "GET") {
-        return requireApiKey(req, res, next);
-    }
-    next();
-});
 
 const readData = async () => {
     try {
@@ -81,7 +75,7 @@ app.get('/api/songs/filter/:text', async (req, res) => {
     res.json(songs);
 });
 
-app.get('/api/songs/all', requireApiKey, async (req, res) => {
+app.get('/api/allsongs', requireApiKey, async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
@@ -90,7 +84,7 @@ app.get('/api/songs/all', requireApiKey, async (req, res) => {
 });
 
 
-app.post('/api/songs', async (req, res) => {
+app.post('/api/songs', requireApiKey, async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
@@ -113,7 +107,7 @@ app.post('/api/songs', async (req, res) => {
     res.json(newSong);
 });
 
-app.put('/api/songs/:id', async (req, res) => {
+app.put('/api/songs/:id', requireApiKey, async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
@@ -144,7 +138,7 @@ app.put('/api/songs/:id', async (req, res) => {
     res.json(data.songs[songIndex]);
 });
 
-app.delete('/api/songs/:id', async (req, res) => {
+app.delete('/api/songs/:id', requireApiKey, async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
