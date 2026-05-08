@@ -81,7 +81,7 @@ app.get('/api/songs/filter/:text', async (req, res) => {
     res.json(songs);
 });
 
-app.get('/api/songs/all', async (req, res) => {
+app.get('/api/songs/all', requireApiKey, async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
