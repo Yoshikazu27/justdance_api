@@ -101,6 +101,9 @@ app.get('/api/allsongs', requireApiKey, async (req, res) => {
     res.json(data.songs);
 });
 
+application.get('/ping', (req, res) => {
+    res.send('OK');
+});
 
 app.post('/api/songs', requireApiKey, async (req, res) => {
     const data = await readData();
