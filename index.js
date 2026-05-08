@@ -56,6 +56,7 @@ app.get('/api/songs', async (req, res) => {
     }
     res.json(data.songs.filter(song => song.available));
 });
+
 app.get('/api/songs/:id', async (req, res) => {
     const data = await readData();
     if (!data) {
@@ -69,12 +70,25 @@ app.get('/api/songs/:id', async (req, res) => {
     res.json(song);
 });
 
-app.get('/api/songs/filter/:text', async (req, res) => {
+app.post('/api/songs/get_by_name', async (req, res) => {
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
-    const text = req.params.text.toLowerCase();
+    const body = req.body;
+    const song = data.songs.find((song) => song.name === body.name);
+    if (!song) {
+        return res.status(404).json({ error: "Song not found" });
+    }
+    res.json(song);
+});
+
+app.post('/api/songs/filter', async (req, res) => {
+    const data = await readData();
+    if (!data) {
+        return res.status(500).json({ message: 'Database error' });
+    }
+    const text = req.body.filter.toLowerCase();
     const songs = data.songs.filter((song) => [song.name, song.artist].some(y => y.toLowerCase().includes(text)));
     res.json(songs);
 });
