@@ -2,9 +2,13 @@ import express from 'express';
 import fs from 'fs/promises';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
+
 const app = express();
+
+app.use(cors());
 app.use(bodyParser.json());
 
 const baseImageUrl = 'https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/';
