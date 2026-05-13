@@ -101,7 +101,7 @@ app.get('/api/allsongs', requireApiKey, async (req, res) => {
     res.json(data.songs);
 });
 
-application.get('/ping', (req, res) => {
+app.get('/ping', (req, res) => {
     res.send('OK');
 });
 
