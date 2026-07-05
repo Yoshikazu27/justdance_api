@@ -84,12 +84,18 @@ app.get('/api/songs/name/:name', async (req, res) => {
 });
 
 app.get('/api/songs/filter/:text', async (req, res) => {
+    const isAdmin = req.headers["x-api-key"] === adminApiKey;
+
     const data = await readData();
     if (!data) {
         return res.status(500).json({ message: 'Database error' });
     }
     const text = decodeURIComponent(req.params.text.toLowerCase());
-    const songs = data.songs.filter((song) => [song.name, song.artist].some(y => y.toLowerCase().includes(text)));
+    const songs = data.songs.filter((song) => {
+        const matches = [song.name, song.artist]
+            .some(y => y.toLowerCase().includes(text));
+        return matches && (isAdmin || song.available);
+    });
     res.json(songs);
 });
 
