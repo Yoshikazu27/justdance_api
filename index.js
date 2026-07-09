@@ -38,11 +38,11 @@ const readData = async () => {
     }
 }
 
-const writeData = async (data) => {
+const writeData = async (data, message) => {
     try {
         await fs.writeFile('./songs-list.json', JSON.stringify(data, null, 2));
 
-        await updateGithub(data);
+        await updateGithub(data, message);
 
     } catch (error) {
         console.error(error);
@@ -134,7 +134,7 @@ app.post('/api/songs', requireApiKey, async (req, res) => {
         available: true
     }
     data.songs.push(newSong);
-    await writeData(data);
+    await writeData(data, `Added song: ${newSong.name}`);
     res.json(newSong);
 });
 
@@ -165,7 +165,7 @@ app.put('/api/songs/:id', requireApiKey, async (req, res) => {
         ...data.songs[songIndex],
         ...updatedFields
     };
-    await writeData(data);
+    await writeData(data, `Updated song: ${newSong.name}`);
     res.json(data.songs[songIndex]);
 });
 
@@ -182,7 +182,7 @@ app.delete('/api/songs/:id', requireApiKey, async (req, res) => {
     }
 
     data.songs.splice(songIndex, 1);
-    await writeData(data);
+    await writeData(data, `Deleted song: ${newSong.name}`);
     res.json({ message: 'Song deleted' });
 });
 

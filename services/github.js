@@ -7,10 +7,9 @@ const {
 
 const FILE_PATH = "songs-list.json";
 
-export async function updateGithub(data) {
+export async function updateGithub(data, message) {
     const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${FILE_PATH}`;
 
-    // Obtener el SHA del archivo actual
     const response = await fetch(apiUrl, {
         headers: {
             Authorization: `Bearer ${GITHUB_TOKEN}`,
@@ -19,7 +18,7 @@ export async function updateGithub(data) {
     });
 
     if (!response.ok) {
-        throw new Error(`No se pudo obtener ${FILE_PATH}: ${response.status}`);
+        throw new Error(`Cannot found ${FILE_PATH}: ${response.status}`);
     }
 
     const file = await response.json();
@@ -28,7 +27,6 @@ export async function updateGithub(data) {
         .from(JSON.stringify(data, null, 2))
         .toString("base64");
 
-    // Actualizar el archivo
     const update = await fetch(apiUrl, {
         method: "PUT",
         headers: {
@@ -37,7 +35,7 @@ export async function updateGithub(data) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            message: "Actualización automática desde la API",
+            message: message,
             content,
             sha: file.sha,
             branch: GITHUB_BRANCH
@@ -48,6 +46,4 @@ export async function updateGithub(data) {
         const error = await update.text();
         throw new Error(error);
     }
-
-    console.log("✅ GitHub actualizado correctamente");
 }
