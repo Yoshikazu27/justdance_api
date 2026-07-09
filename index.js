@@ -3,6 +3,7 @@ import fs from 'fs/promises';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { updateGithub } from './services/github.js';
 
 dotenv.config();
 
@@ -40,8 +41,11 @@ const readData = async () => {
 const writeData = async (data) => {
     try {
         await fs.writeFile('./songs-list.json', JSON.stringify(data, null, 2));
+
+        await updateGithub(data);
+
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
