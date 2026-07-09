@@ -5784,7 +5784,7 @@
       "difficulty": 2,
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/LeanOnMU_1725792280/assets/web/leanonmu_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/LeanOnMU_1db8a7a31e8150a19b9423adca393a73c79c6b26bc0ef7190bd5f76698e913f2.mp4",
-      "available": false,
+      "available": true,
       "id": 643
     },
     {
@@ -6936,7 +6936,7 @@
       "difficulty": 2,
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/NoControlMU_1725792076/assets/web/nocontrolmu_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/NoControlMU_0d9048ea440eb2a5148a19e8eb5ec28f667524b5c293662794b71aeda23a98a7.mp4",
-      "available": true,
+      "available": false,
       "id": 771
     },
     {
@@ -8196,7 +8196,7 @@
       "difficulty": 2,
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/ScreamNShoutMU_1755354201/assets/web/screamnshoutmu_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/ScreamNShoutMU_567c448701ea7f354b8000cb13e79aad8a77baaa8a79baffa426464e1b3253eb.mp4",
-      "available": false,
+      "available": true,
       "id": 912
     },
     {
@@ -8223,7 +8223,7 @@
       "difficulty": 2,
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/SeptemberMU_1725790556/assets/web/septembermu_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/SeptemberMU_1ce2208c5c35e428ae8d8ec96b770e8a3eab5e45c523d7b4e00af0ff6f54c9b6.mp4",
-      "available": false,
+      "available": true,
       "id": 915
     },
     {
@@ -10509,7 +10509,7 @@
       "difficulty": 2,
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/WhatIsLoveMU_1725790349/assets/web/whatislovemu_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/WhatIsLoveMU_0d7d6ca16bb94f126b32e2b415c42851757f86080b5665447ca9883f551c0154.mp4",
-      "available": false,
+      "available": true,
       "id": 1169
     },
     {
@@ -10842,7 +10842,7 @@
       "difficulty": 2,
       "image": "https://cdn-jdnplus-global.ramaprojects.ru/cdn/songs/WorthItMU_1725790146/assets/web/worthitmu_small.jpg",
       "preview": "https://cdn-jdnplus-global.ramaprojects.ru/sneakpeak/WorthItMU_65406b9bc2bcc13db2503dd10d3370231dbd942db130252d8b33bf1438adf8ed.mp4",
-      "available": true,
+      "available": false,
       "id": 1206
     },
     {
