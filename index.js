@@ -165,7 +165,10 @@ app.put('/api/songs/:id', requireApiKey, async (req, res) => {
         ...data.songs[songIndex],
         ...updatedFields
     };
-    await writeData(data, `Updated song: ${newSong.name}`);
+
+    const song = data.songs[songIndex];
+
+    await writeData(data, `Updated song: ${song.name}`);
     res.json(data.songs[songIndex]);
 });
 
@@ -181,8 +184,10 @@ app.delete('/api/songs/:id', requireApiKey, async (req, res) => {
         return res.status(404).json({ message: 'Song not found' });
     }
 
+    const song = data.songs[songIndex];
+
     data.songs.splice(songIndex, 1);
-    await writeData(data, `Deleted song: ${newSong.name}`);
+    await writeData(data, `Deleted song: ${song.name}`);
     res.json({ message: 'Song deleted' });
 });
 
